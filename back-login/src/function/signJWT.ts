@@ -14,7 +14,8 @@ const signJWT = (user:IUser,callback : (error:Error|null,token:string|null)=>voi
             firstName:user.firstName,
             lastName:user.lastName,
             email:user.email,
-            phone:user.phone
+            phone:user.phone,
+            isAdmin:user.isAdmin
         },
         config.server.token.secret,
         {

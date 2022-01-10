@@ -40,14 +40,15 @@ export async function signup(req: Request, res: Response) {
 }
 
 export async function getUser(req: Request, res: Response): Promise<void> {
-    const {username,firstName,lastName,email,phone} = res.locals.jwt
+    const {username,firstName,lastName,email,phone,isAdmin} = res.locals.jwt
       try {
           const user = {
             username:username,
             firstName:firstName,
             lastName:lastName,
             email:email,
-            phone:phone
+            phone:phone,
+            isAdmin:isAdmin
         }
           res.json(user);
       } catch (err) {

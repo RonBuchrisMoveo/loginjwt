@@ -6,7 +6,7 @@ require('dotenv').config()
 import { ConnectionOptions } from 'mongoose'
 
     // Database Name
-    const dbName: string = 'user_db'
+    const dbName: string = 'data_db'
     var dbURL: string = 'mongodb://localhost/'
 
 const app: Application = express()
@@ -24,8 +24,10 @@ const options: ConnectionOptions = {
 const CONNECTION_URL = process.env.CONNECTION_URL
 
 import {authRouters} from './routes/auth.route'
+import {carRouters} from './routes/car.route'
 
 app.use('/api/auth',authRouters)
+app.use('/api/car',carRouters)
 
 const PORT = process.env.PORT || 3030;
 app.listen((PORT),
